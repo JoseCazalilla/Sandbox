@@ -2,28 +2,69 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashSet;
 
 public class App {
     private JPanel panelMain;
     private JButton runButton;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
+    private JTextField numElemSetA;
+    private JTextField maxNumberSetA;
+    private JTextField numElemSetB;
+    private JTextField maxNumberSetB;
     private JComboBox comboBox1;
     private JTextArea matchedTextArea;
     private JTextArea executionTextArea;
-    private JButton buttonRun;
+    private IntersectHelper myIntersect;
 
     public App() {
 
         comboBox1.addItem("Set A");
         comboBox1.addItem("Set B");
+        numElemSetA.setText("10000");
+        numElemSetB.setText("10000");
+        maxNumberSetA.setText("50000");
+        maxNumberSetB.setText("50000");
+
+        myIntersect = new IntersectHelper();
 
         runButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e){
-                matchedTextArea.setText(comboBox1.getSelectedItem().toString());
+                int nSetA, nSetB, maxSetA, maxSetB;
+                nSetA = nSetB = maxSetA = maxSetB = -1;
+                String setToBeHashed = "";
+                try {
+                    nSetA = Integer.parseInt(numElemSetA.getText());
+                    nSetB = Integer.parseInt(numElemSetB.getText());
+                    maxSetA = Integer.parseInt(maxNumberSetA.getText());
+                    maxSetB = Integer.parseInt(maxNumberSetB.getText());
+                    setToBeHashed = comboBox1.getSelectedItem().toString();
+                }
+
+                catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Please, set the numbers properly!");
+                    return;
+                }
+
+                // In this case, the set A will be our hashSet and set B will be our Array
+                if (setToBeHashed.equals("Set A")) {
+                    myIntersect.fillArray(nSetB,maxSetB);
+                    myIntersect.fillHashset(nSetA,maxSetA);
+                }
+                // The opposite
+                else {
+                    myIntersect.fillHashset(nSetB,maxSetB);
+                    myIntersect.fillArray(nSetA,maxSetA);
+                }
+
+                long execTime = myIntersect.calcIntersection();
+                HashSet myHashSetInter = myIntersect.getResultIntersect();
+
+                matchedTextArea.setText("There are " + myHashSetInter.size() + " numbers that are in both sets");
+                executionTextArea.setText("It took " + execTime + " milliseconds");
+
+                myIntersect.reset();
+
             }
         });
     }
