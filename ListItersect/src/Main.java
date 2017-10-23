@@ -18,7 +18,7 @@ public class Main {
 
         System.out.println("It took "+ execTime + "ms to compute the intersecion");
         System.out.println("Total number of intersected objects: " + myHashSetInter.size());
-        
+
         myIntersect.reset();
     }
 }
