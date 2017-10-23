@@ -11,12 +11,12 @@ public class Main {
         // 4.- Get the result of that intersections
 
         IntersectHelper myIntersect = new IntersectHelper();
-        myIntersect.fillArray(10, 50);
-        myIntersect.fillHashset(10, 50);
+        myIntersect.fillArray(10000, 50000);
+        myIntersect.fillHashset(10000, 50000);
         long execTime = myIntersect.calcIntersection();
         HashSet myHashSetInter = myIntersect.getResultIntersect();
 
-        System.out.println("It took "+ execTime + "ms to compute the intersecion");
+        System.out.println("It took "+ execTime + "ms to compute the intersection");
         System.out.println("Total number of intersected objects: " + myHashSetInter.size());
 
         myIntersect.reset();
