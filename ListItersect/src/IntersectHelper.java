@@ -4,11 +4,13 @@ import java.util.HashSet;
 public class IntersectHelper {
     private ArrayList a;
     private HashSet h;
+    private HashSet res;
 
     // Public constructor
     public IntersectHelper() {
         a = new ArrayList();
         h = new HashSet();
+        res = new HashSet();
     }
 
     // This method will fill the array with the info provided
@@ -21,11 +23,17 @@ public class IntersectHelper {
 
     }
 
-    // This method will return an ArrayList with the result
-    public ArrayList calcIntersection() {
+    // This method will return the time it takes to do the intersection
+    public long calcIntersection() {
 
-        ArrayList foo = new ArrayList();
+        long foo = 0;
         return foo;
+    }
+
+    // This method will return the last result of the intersection
+    // Using a hashset will allow use to remove duplicates. We don't need to keep any order, so it is fine
+    public HashSet getResultIntersect() {
+        return res;
     }
 
     // This method will clear both the array and the hashSet (just in case we need to use it)
