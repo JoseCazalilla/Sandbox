@@ -14,6 +14,11 @@ public class Main {
         myIntersect.fillArray(10000, 50000);
         myIntersect.fillHashset(10000, 50000);
         long execTime = myIntersect.calcIntersection();
+
+        // This is how we can do it in a n^2 cost, instead of lineal.
+        // Non-optimal, but I just wanted to make sure of the benefit
+        //long execTime = myIntersect.calcIntersectionForLoop();
+
         HashSet myHashSetInter = myIntersect.getResultIntersect();
 
         System.out.println("It took "+ execTime + "ms to compute the intersection");

@@ -50,6 +50,30 @@ public class IntersectHelper {
         return elapsedTime;
     }
 
+    // This method will return the time it takes to do the intersection in an non-optimal way
+    public long calcIntersectionForLoop() {
+
+        int resAux = 0;
+
+        // Getting the timestamp here
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i < a.size(); i++) {
+            resAux = (int) a.get(i);
+            for (Object auxHash: h) {
+                if (auxHash.equals(resAux)) {
+                    res.add(resAux);
+                }
+            }
+        }
+
+        // Getting the timestamp here
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+
+        return elapsedTime;
+    }
+
     // This method will return the last result of the intersection
     // Using a hashset will allow use to remove duplicates. We don't need to keep any order, so it is fine
     public HashSet getResultIntersect() {
