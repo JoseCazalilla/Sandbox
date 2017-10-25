@@ -1,5 +1,5 @@
 fun main(args: Array<String>) {
-    val a = IntersectHelper()
-    a.test()
-    println("Test of ListIntersect")
+    val myIntersecHelper = IntersectHelper()
+    myIntersecHelper.fillArray(20,20)
+    myIntersecHelper.test()
 }

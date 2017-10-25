@@ -12,9 +12,13 @@ class IntersectHelper {
         res = HashSet()
     }
 
+    fun fillArray(numElems: Int, maxNum: Int) {
+        for (i in 0 until numElems) {
+            a.add((Math.random() * maxNum).toInt())
+        }
+    }
+
     fun test(){
-        a.add(21)
-        a.add(43)
         for (item in a) print("$item ")
     }
 
