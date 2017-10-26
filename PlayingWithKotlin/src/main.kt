@@ -96,6 +96,13 @@ fun main(args: Array<String>) {
 
     println(k2)
 
+    // You cannot do this, as the constructor is private
+    // val testMyClass = MyClass("This is my name")
+
+    // You can only do it using a factory-like
+    val testMyClass = MyClass.create("Holaaa")
+    testMyClass.tellMeMyName()
+
 
 
 

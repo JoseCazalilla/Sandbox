@@ -37,3 +37,12 @@ class C() : A(), B {
         super<B>.f() // call to B.f()
     }
 }
+
+class MyClass private constructor(val name: String) {
+    companion object Factory {
+        fun create(name: String): MyClass = MyClass(name)
+    }
+    fun tellMeMyName() {
+        println(this.name)
+    }
+}
