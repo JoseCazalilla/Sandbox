@@ -91,6 +91,9 @@ fun main(args: Array<String>) {
     b2 = null
     val k2 = b2?.length ?: -1
 
+    val myChild = child("Noelia")
+    myChild.makeOlder()
+
     println(k2)
 
 
