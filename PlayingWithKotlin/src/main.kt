@@ -1,3 +1,5 @@
+import java.math.BigDecimal
+
 fun getStringLength(obj: Any): Int? {
     if (obj !is String) return null
 
@@ -46,6 +48,38 @@ fun main(args: Array<String>) {
     println(l)
 
     println("${describe("Bruuu")}")
+
+    // Lambdas example. That's the same
+    val example = listOf(1,2,3,4).map { value -> value * 2}
+    val example2 = listOf(1,2,3,4).map {it * 2}
+
+    // Filter, sorted by, map, etc. Super-powerful
+    val str = listOf("a", "ab", "abc", "abcd", "abcde").filter { it.contains("c") }
+            .sortedDescending()
+            .count()
+
+    val example3 = listOf(1,2,3,4).forEach{value -> println("$value")}
+    val example4 = listOf(1,2,3,4).forEach{println("$it")}
+    println(str)
+
+    // Creates an Array<String> with values ["0", "1", "4", "9", "16"]
+    val asc = Array(5, { it.times(it).toString() })
+    asc.forEach { println(it) }
+
+    // Lambdas are nice
+    val myPerson: Person = Person("Jose", 29)
+    val takeUnless = myPerson.takeUnless { it.age == 29 }
+
+    // Getting 5 years younger...
+    val myPplList = listOf(Person("Jose", 29), Person("Irene",27)).sortedByDescending { it.age }
+
+    // Now we are 5 years younger!
+    // I can change it because the attribute age is mutable
+    myPplList.forEach { it.age-=5
+        println(it)}
+
+
+
 
 
 
