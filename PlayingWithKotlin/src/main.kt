@@ -78,7 +78,20 @@ fun main(args: Array<String>) {
     myPplList.forEach { it.age-=5
         println(it)}
 
+    myPplList.forEach { it.makeOlder()
+        println(it)}
 
+    //Null checks
+
+    val b = "Hello"
+    val k = b?.length ?: -1
+
+    // Here the compiler doesn't know, as it is mutable
+    var b2: String? = "Hello"
+    b2 = null
+    val k2 = b2?.length ?: -1
+
+    println(k2)
 
 
 
