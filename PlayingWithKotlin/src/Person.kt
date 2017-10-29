@@ -62,3 +62,17 @@ data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparab
 }
 
 fun compare(date1: MyDate, date2: MyDate) = date1 < date2
+
+
+class DateRange(val start: MyDate, val endInclusive: MyDate) {
+
+    // The solution proposed was with a "return start < d && d <= endInclusive", but this one is good as well
+    operator fun contains (d: MyDate) = when {
+        start < d && d <= endInclusive  -> true
+        else -> false
+    }
+}
+
+fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
+    return date in DateRange(first, last)
+}
