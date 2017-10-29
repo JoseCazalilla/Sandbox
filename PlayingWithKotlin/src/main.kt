@@ -103,6 +103,9 @@ fun main(args: Array<String>) {
     val testMyClass = MyClass.create("Holaaa")
     testMyClass.tellMeMyName()
 
+    // Extensions
+    val ratNum = 25.r()
+    val ratNum2 = Pair(12,6).r()
 
 
 
