@@ -107,6 +107,9 @@ fun main(args: Array<String>) {
     val ratNum = 25.r()
     val ratNum2 = Pair(12,6).r()
 
+    ratNum.printDenominator()
+    ratNum.printNumerator()
+
 
 
 }

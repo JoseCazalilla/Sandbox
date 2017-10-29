@@ -51,7 +51,11 @@ class MyClass private constructor(val name: String) {
 fun Int.r(): RationalNumber = RationalNumber(this, 1)
 fun Pair<Int, Int>.r(): RationalNumber = RationalNumber(this.first, this.second)
 
-data class RationalNumber(val numerator: Int, val denominator: Int)
+data class RationalNumber(val numerator: Int, val denominator: Int) {
+    fun printNumerator() = println(numerator)
+}
+
+fun RationalNumber.printDenominator() = println(this.denominator)
 
 data class MyDate(val year: Int, val month: Int, val dayOfMonth: Int) : Comparable<MyDate> {
     override fun compareTo(other: MyDate) = when {
