@@ -69,7 +69,6 @@ fun main(args: Array<String>) {
     // Lambdas are nice
     val myPerson: Person = Person("Jose", 29)
     val takeUnless = myPerson.takeUnless { it.age == 29 }
-
     // Getting 5 years younger...
     val myPplList = listOf(Person("Jose", 29), Person("Irene",27)).sortedByDescending { it.age }
 
@@ -92,9 +91,12 @@ fun main(args: Array<String>) {
     val k2 = b2?.length ?: -1
 
     val myChild = child("Noelia")
-    myChild.makeOlder()
+    val myChild2 = child("Noelia")
 
-    println(k2)
+    val testMap = mutableMapOf<Int,child>()//mapOf(1 to myChild2)
+    testMap[0] = myChild2
+    testMap[3] = child("Sofia")
+
 
     // You cannot do this, as the constructor is private
     // val testMyClass = MyClass("This is my name")

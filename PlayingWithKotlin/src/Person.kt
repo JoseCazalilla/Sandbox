@@ -1,5 +1,6 @@
 // If you make it var -> mutable
 open class Person (val name: String, var age: Int) {
+    protected var money: Int = 22
     open fun makeOlder(){
         age++
         useless()
@@ -13,6 +14,7 @@ open class Person (val name: String, var age: Int) {
 class child(name: String): Person(name, 12) {
     init {
         println("This is the constructor of child!")
+        money = 0
     }
 
     override fun makeOlder(){
