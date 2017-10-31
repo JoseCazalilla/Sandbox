@@ -113,11 +113,15 @@ fun main(args: Array<String>) {
     ratNum.printNumerator()
 
     //Animal stuff
-
-    val animalFaltory = AnimalFactory()
-    val alea = animalFaltory.getAnimal("dog", "Alea")
+    val animalFactory = AnimalFactory()
+    val alea = animalFactory.getAnimal("dog", "Alea")
     alea?.noise()
     alea?.getInfo()
+    alea?.color = "Brown"
+    alea?.getInfo()
+    alea?.color = "White"
+    alea?.getInfo()
+
 
 
 }
