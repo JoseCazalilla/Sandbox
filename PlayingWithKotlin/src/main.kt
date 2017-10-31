@@ -112,6 +112,12 @@ fun main(args: Array<String>) {
     ratNum.printDenominator()
     ratNum.printNumerator()
 
+    //Animal stuff
+
+    val animalFaltory = AnimalFactory()
+    val alea = animalFaltory.getAnimal("dog", "Alea")
+    alea?.noise()
+    alea?.getInfo()
 
 
 }
