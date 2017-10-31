@@ -127,5 +127,8 @@ fun main(args: Array<String>) {
     val isEven: Int.() -> Boolean = { this % 2 == 0 }
     54.isEven()
 
+    val represents: String.(Int) -> Boolean = { inputInt -> this.toInt() == inputInt }
+    println("123".represents(123)) // true
+
 
 }
