@@ -16,6 +16,7 @@ fun describe(obj: Any): String =
             else       -> "Unknown"
         }
 
+
 fun main(args: Array<String>) {
     // Immutable
     val name = "Jose"
@@ -122,6 +123,9 @@ fun main(args: Array<String>) {
     alea?.color = "White"
     alea?.getInfo()
 
+    // More extensions
+    val isEven: Int.() -> Boolean = { this % 2 == 0 }
+    54.isEven()
 
 
 }
