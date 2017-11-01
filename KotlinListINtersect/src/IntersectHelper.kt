@@ -1,4 +1,5 @@
 import java.util.*
+import java.util.concurrent.ThreadLocalRandom
 
 class IntersectHelper {
     private val a:ArrayList<Int>
@@ -13,14 +14,16 @@ class IntersectHelper {
     }
 
     fun fillArray(numElems: Int, maxNum: Int) {
+        val random = ThreadLocalRandom.current()
         for (i in 0 until numElems) {
-            a.add((Math.random() * maxNum).toInt())
+            a.add(random.nextInt(0, maxNum))
         }
     }
 
     fun fillHashset(numElems: Int, maxNum: Int) {
+        val random = ThreadLocalRandom.current()
         for (i in 0 until numElems) {
-            h.add((Math.random() * maxNum).toInt())
+            h.add(random.nextInt(0, maxNum))
         }
     }
 
@@ -28,7 +31,7 @@ class IntersectHelper {
 
         // Getting the timestamp here
         val startTime = System.currentTimeMillis()
-
+        // Doing the intersection
         a.filterTo(res) { elem -> h.contains(elem) }
         // Getting the timestamp here
         val stopTime = System.currentTimeMillis()
