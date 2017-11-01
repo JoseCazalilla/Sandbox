@@ -131,4 +131,8 @@ fun main(args: Array<String>) {
     println("123".represents(123)) // true
 
 
+    val a = CompanionExample.create()
+    CompanionExample.sayHello()
+    a.sayBye()
+
 }

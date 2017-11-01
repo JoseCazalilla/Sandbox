@@ -82,3 +82,33 @@ class DateRange(val start: MyDate, val endInclusive: MyDate) {
 fun checkInRange(date: MyDate, first: MyDate, last: MyDate): Boolean {
     return date in DateRange(first, last)
 }
+
+
+//Generics with extensions... quite difficult stuff
+fun <T, C: MutableCollection<T>> Collection<T>.partitionTo(first: C, second: C, predicate: (T) -> Boolean): Pair<C, C> {
+    for (element in this) {
+        if (predicate(element)) {
+            first.add(element)
+        } else {
+            second.add(element)
+        }
+    }
+    return Pair(first, second)
+}
+
+
+interface IFactory <out T> {
+    fun create (): T
+}
+
+class CompanionExample
+{
+    companion object:IFactory<CompanionExample> {
+        override fun create(): CompanionExample {
+            return CompanionExample()
+        }
+        //Inside Companion (so like static)
+        fun sayHello() = println("Hello")
+    }
+    fun sayBye() = println("Bye")
+}
