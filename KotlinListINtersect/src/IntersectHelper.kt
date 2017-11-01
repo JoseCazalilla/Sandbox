@@ -1,5 +1,4 @@
-import java.util.ArrayList
-import java.util.HashSet
+import java.util.*
 
 class IntersectHelper {
     private val a:ArrayList<Int>
@@ -30,11 +29,7 @@ class IntersectHelper {
         // Getting the timestamp here
         val startTime = System.currentTimeMillis()
 
-        for (i in a) {
-            if (h.contains(i)) {
-                res.add(i)
-            }
-        }
+        a.filterTo(res) { elem -> h.contains(elem) }
         // Getting the timestamp here
         val stopTime = System.currentTimeMillis()
 

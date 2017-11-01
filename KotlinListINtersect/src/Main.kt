@@ -7,4 +7,4 @@ fun main(args: Array<String>) {
 //    val (execTime, res) = myIntersectHelper.calcIntersectionForLoop()
 
     println("Execution time (ms): $execTime \t ElemsMatched: ${res.size}")
-}
+ }
