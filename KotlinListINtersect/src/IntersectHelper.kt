@@ -1,18 +1,12 @@
 import java.util.*
 import java.util.concurrent.ThreadLocalRandom
+import kotlin.collections.HashSet
 
 class IntersectHelper {
-    private val a:ArrayList<Int>
-    private val h:HashSet<Int>
-    private val res:HashSet<Int>
-
-    // Public constructor
-    init{
-        a = ArrayList()
-        h = HashSet()
-        res = HashSet()
-    }
-
+    private val a:ArrayList<Int> = ArrayList()
+    private val h:HashSet<Int> = HashSet()
+    private val res:HashSet<Int> = HashSet()
+    
     fun fillArray(numElems: Int, maxNum: Int) {
         val random = ThreadLocalRandom.current()
         for (i in 0 until numElems) {
