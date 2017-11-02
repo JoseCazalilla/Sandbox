@@ -1,5 +1,10 @@
 // If you make it var -> mutable
-open class Person (val name: String, var age: Int) {
+open class Person (val name: String, age: Int) {
+    var age: Int = age
+    set(value) {
+        field = value
+        println("Custom setter called")
+    }
     protected var money: Int = 22
     open fun makeOlder(){
         age++

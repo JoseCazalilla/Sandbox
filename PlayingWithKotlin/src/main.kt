@@ -69,6 +69,7 @@ fun main(args: Array<String>) {
 
     // Lambdas are nice
     val myPerson: Person = Person("Jose", 29)
+    myPerson.age = 41
     val takeUnless = myPerson.takeUnless { it.age == 29 }
     // Getting 5 years younger...
     val myPplList = listOf(Person("Jose", 29), Person("Irene",27)).sortedByDescending { it.age }
