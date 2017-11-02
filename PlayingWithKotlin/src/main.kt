@@ -110,8 +110,10 @@ fun main(args: Array<String>) {
     val ratNum = 25.r()
     val ratNum2 = Pair(12,6).r()
 
-    ratNum.printDenominator()
-    ratNum.printNumerator()
+    ratNum.apply {
+        printDenominator()
+        printNumerator()
+    }
 
     //Animal stuff
     val animalFactory = AnimalFactory()
@@ -133,6 +135,46 @@ fun main(args: Array<String>) {
 
     val a = CompanionExample.create()
     CompanionExample.sayHello()
-    a.sayBye()
+    //a.sayBye()
+
+    a.apply { sayBye()
+              val s = 25
+                val ratNum = 44.r()
+        println(ratNum)
+            }
+
+
+    class Config(var buildType: String, var version: String)
+
+    val map = hashMapOf<String, Config>("Hello" to Config("Foo", "Boo"), "World" to Config("test1", "test"))
+
+    fun configurationFor(id: String) = map[id]?.let { config ->
+        config.apply {
+            buildType = "DEBUG"
+            version = "1.2"
+        }
+    }
+
+    fun configurationFor2(id: String) = map[id]?.let {config ->
+            config.buildType = "DEBUG"
+            config.version = "1.2"
+        }
+
+    configurationFor2("foo")
+
+    map.forEach {
+        str, cfg -> println("Key= $str\t vals: ${cfg.buildType} and ${cfg.version}")
+    }
 
 }
+
+fun partitionWordsAndLines() {
+    val (words, lines) = listOf("a", "a b", "c", "d e").
+            partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
+}
+
+fun partitionLettersAndOtherSymbols() {
+    val (letters, other) = setOf('a', '%', 'r', '}').
+            partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
+}
+

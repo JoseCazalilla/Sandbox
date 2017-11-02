@@ -6,7 +6,7 @@ class IntersectHelper {
     private val a:ArrayList<Int> = ArrayList()
     private val h:HashSet<Int> = HashSet()
     private val res:HashSet<Int> = HashSet()
-    
+
     fun fillArray(numElems: Int, maxNum: Int) {
         val random = ThreadLocalRandom.current()
         for (i in 0 until numElems) {
